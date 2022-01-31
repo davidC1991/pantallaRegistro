@@ -25,8 +25,6 @@ class _DropDownIdTypesState extends State<DropDownIdTypes> {
               height: 47,
               width: 285,
               decoration: BoxDecoration(
-              
-                //border: Border.all(color: Colors.blue),
                 borderRadius: BorderRadius.circular(10)
               ),
               child: TextWidget(texto: value, size: 15, padding: EdgeInsets.zero, color: Colors.blue)
@@ -39,21 +37,18 @@ class _DropDownIdTypesState extends State<DropDownIdTypes> {
   @override
   Widget build(BuildContext context) {
     final Size size = MediaQuery.of(context).size;
-    //final createCode= Provider.of<Crearcodigo>(context);
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          
           TextWidget(texto: 'Tipo de documento', size: 15, padding: EdgeInsets.zero, color: Colors.grey[600]),
           SizedBox(height: 5),
           Container(
             height: size.height * 0.066,
             width: size.width * 0.85,
              decoration: BoxDecoration(
-               //color: Colors.pink,
-               borderRadius: BorderRadius.circular(20),
+             borderRadius: BorderRadius.circular(20),
                border: Border.all(color: Colors.blue, width: 1.3),
              ),
             child: DropdownButton(

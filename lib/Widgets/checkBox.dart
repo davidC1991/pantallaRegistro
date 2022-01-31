@@ -17,12 +17,10 @@ class CheckBox extends StatelessWidget {
     return Container(
       width: 335,
       height: 40,
-      //color: Colors.red,
       child: Row(
         children: [
           GestureDetector(
             onTap: (){
-                
               stateTextForm.setDataCheckBox(this.text!, !stateTextForm.getDataCheckBox[this.text]!);
               stateTextForm.setDataValidationStream(this.text!, stateTextForm.getDataCheckBox[this.text]!);
             },

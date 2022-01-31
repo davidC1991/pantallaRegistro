@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:screen_signup/Provider/statesFormSignUp_Provider.dart';
 
+// ignore: must_be_immutable
 class FormStateSignUp extends StatelessWidget {
 
   final GlobalKey<FormFieldState> formFieldKey = GlobalKey();
@@ -31,42 +32,30 @@ class FormStateSignUp extends StatelessWidget {
         keyboardType: this.isNum?TextInputType.number:TextInputType.text,
         textCapitalization: TextCapitalization.words,
         onTap: (){
-          print('tocado');
-          //stateTextForm.setTouch = true;
-          stateTextForm.setTouchedMap(this.wichFieldIs, false);
+         stateTextForm.setTouchedMap(this.wichFieldIs, false);
         },
           
         onChanged: (value){
-          print('value: $value');
-            stateTextForm.saveFormValues(this.wichFieldIs,value);
+          stateTextForm.saveFormValues(this.wichFieldIs,value);
           if (value ==''){
-              print('esta vacio el value');
               stateTextForm.setTouchedMap(this.wichFieldIs, true);
-            
               formFieldKey.currentState!.setValue(null);
-            FocusScope.of(context).unfocus();
+              FocusScope.of(context).unfocus();
             
           }else if(formFieldKey.currentState!.isValid){
-            
             stateTextForm.setDataValidationStream(this.wichFieldIs,true);
-            
-            
           }else if(!formFieldKey.currentState!.isValid){
               stateTextForm.setDataValidationStream(this.wichFieldIs,false);
               stateTextForm.setTouchedMap(this.wichFieldIs, false);
-            
-            }
+          }
           
         },
         validator: ( value ){
-            // errorMessage = formFieldKey.currentState!.errorText??'nullo';
-            // print(errorMessage);
           if ( value == null ) return 'Este campo es requerido';
           return value.length < 6 ? ' Minimo 6 caracteres' : null;
         },
-        //focusNode: FocusNode(skipTraversal: true,descendantsAreFocusable : true),
-        autovalidateMode:  AutovalidateMode.onUserInteraction,
         
+        autovalidateMode:  AutovalidateMode.onUserInteraction,
         decoration: InputDecoration(
           
             fillColor: Colors.grey[350],
@@ -82,7 +71,6 @@ class FormStateSignUp extends StatelessWidget {
                         : this.wichFieldIs=='surname'?Icon(Icons.account_circle_outlined, color: stateTextForm.getformValues[this.wichFieldIs]! ==''?Colors.grey:Colors.blue)
                         : this.wichFieldIs=='phone'?Icon(Icons.phone_outlined, color: stateTextForm.getformValues[this.wichFieldIs]! ==''?Colors.grey:Colors.blue) 
                         : null,
-            //this.icon == null?null:this.icon,
             suffixIcon: stateTextForm.isAllDataValidated[this.wichFieldIs]!?Icon(Icons.check_circle_rounded,color: Colors.blue,):null,
             errorBorder: OutlineInputBorder(
               borderRadius: BorderRadius.all(Radius.circular(20)),

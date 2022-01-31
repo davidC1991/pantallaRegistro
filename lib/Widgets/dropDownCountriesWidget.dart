@@ -24,9 +24,7 @@ class _DropDownWidgetState extends State<DropDownWidget> {
               height: 50,
               width: 50,
               decoration: BoxDecoration(
-                //color: Colors.red,
-                //border: Border.all(color: Colors.blue),
-                borderRadius: BorderRadius.circular(10)
+               borderRadius: BorderRadius.circular(10)
               ),
               child: CircleAvatar(radius: 20,backgroundImage: AssetImage(value))))).toList();
           
@@ -37,7 +35,6 @@ class _DropDownWidgetState extends State<DropDownWidget> {
   @override
   Widget build(BuildContext context) {
     final Size size = MediaQuery.of(context).size;
-    //final createCode= Provider.of<Crearcodigo>(context);
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
